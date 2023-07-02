@@ -1,0 +1,73 @@
+
+local timedaygui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local timelab = Instance.new("TextLabel")
+local daynightbutton = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+
+--Properties:
+
+timedaygui.Name = "timedaygui"
+timedaygui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+Frame.Parent = timedaygui
+Frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Frame.Position = UDim2.new(0.401937038, 0, 0.210365847, 0)
+Frame.Size = UDim2.new(0, 152, 0, 66)
+
+UICorner.Parent = Frame
+
+timelab.Name = "timelab"
+timelab.Parent = Frame
+timelab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+timelab.BackgroundTransparency = 1.000
+timelab.BorderSizePixel = 0
+timelab.Position = UDim2.new(0.0789473653, 0, 0.227272734, 0)
+timelab.Size = UDim2.new(0, 53, 0, 35)
+timelab.Font = Enum.Font.Unknown
+timelab.Text = "Time:"
+timelab.TextColor3 = Color3.fromRGB(255, 255, 255)
+timelab.TextScaled = true
+timelab.TextSize = 14.000
+timelab.TextWrapped = true
+
+daynightbutton.Name = "daynightbutton"
+daynightbutton.Parent = Frame
+daynightbutton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+daynightbutton.Position = UDim2.new(0.460526317, 0, 0.24242425, 0)
+daynightbutton.Size = UDim2.new(0, 75, 0, 32)
+daynightbutton.Font = Enum.Font.Unknown
+daynightbutton.Text = "Day"
+daynightbutton.TextColor3 = Color3.fromRGB(255, 255, 255)
+daynightbutton.TextScaled = true
+daynightbutton.TextSize = 14.000
+daynightbutton.TextWrapped = true
+
+UICorner_2.CornerRadius = UDim.new(0, 16)
+UICorner_2.Parent = daynightbutton
+
+-- Scripts:
+
+local function CJCEVUC_fake_script() -- daynightbutton.sc 
+	local script = Instance.new('LocalScript', daynightbutton)
+
+	while true do
+		script.Parent.MouseButton1Click:Wait()
+		game.Lighting.ClockTime = 19
+		script.Parent.Text = "Night - Chijj"
+		script.Parent.MouseButton1Click:Wait()
+		game.Lighting.ClockTime = 14
+		script.Parent.Text = "Day - Chijj"
+	end
+end
+coroutine.wrap(CJCEVUC_fake_script)()
+local function OKOY_fake_script() -- timedaygui.drag 
+	local script = Instance.new('LocalScript', timedaygui)
+
+	local frame = script.Parent.Frame
+	frame.Active = true
+	frame.Selectable = true
+	frame.Draggable = true
+end
+coroutine.wrap(OKOY_fake_script)()
